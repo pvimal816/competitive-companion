@@ -27,7 +27,7 @@ export class CodeforcesProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const task = new TaskBuilder('Codeforces').setUrl(url);
-
+    task.setLibToAdd(window.prompt("Enter name of library to support: "));
     if (url.includes('/problemsets/acmsguru')) {
       const elem = htmlToElement(html);
       const table = elem.querySelector('.problemindexholder > .ttypography > .bordertable');
@@ -40,7 +40,7 @@ export class CodeforcesProblemParser extends Parser {
     } else {
       this.parseMainProblem(html, url, task);
     }
-
+    
     return task.build();
   }
 

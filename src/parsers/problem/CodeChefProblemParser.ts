@@ -22,7 +22,7 @@ export class CodeChefProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CodeChef').setUrl(url);
-
+    task.setLibToAdd(window.prompt("Enter name of library to support: "));
     const name = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
 
     task.setName(name);

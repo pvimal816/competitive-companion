@@ -17,6 +17,8 @@ export class TaskBuilder {
   public url: string = '';
   public interactive: boolean = false;
 
+  public libstoadd: string = '';
+
   public memoryLimit: number = 1024;
   public timeLimit: number = 1000;
 
@@ -41,6 +43,11 @@ export class TaskBuilder {
   public setName(name: string): TaskBuilder {
     this.name = name;
     return this.updateJavaTaskClassFromName();
+  }
+
+  public setLibToAdd(libNm: string): TaskBuilder{
+    this.libstoadd = libNm;
+    return this;
   }
 
   public setCategory(category: string): TaskBuilder {
@@ -149,6 +156,7 @@ export class TaskBuilder {
       this.input,
       this.output,
       this.languages,
+      this.libstoadd
     );
   }
 }

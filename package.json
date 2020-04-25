@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --colors --mode=production",
+    "build-dev": "webpack --colors --mode=development",
     "watch": "yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "lint": "yarn lint:tslint && yarn lint:prettier && yarn lint:package",

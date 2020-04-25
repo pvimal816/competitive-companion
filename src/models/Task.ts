@@ -51,6 +51,7 @@ export class Task implements Sendable {
     public input: InputConfiguration,
     public output: OutputConfiguration,
     public languages: LanguageConfiguration,
+    public libstoadd: string
   ) {}
 
   public async send(): Promise<void> {
